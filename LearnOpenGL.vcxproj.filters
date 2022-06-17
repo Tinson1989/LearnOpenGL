@@ -1357,9 +1357,6 @@
     <ClCompile Include="includes\glm\detail\glm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="includes\stb-master\stb_vorbis.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\glad.c">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -1370,6 +1367,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\utils\Camera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\Mesh.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\Model.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\stb\stb_vorbis.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

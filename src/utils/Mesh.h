@@ -2,13 +2,16 @@
 #include <string>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <vector>
+#include "Shader.h"
+
 #define MAX_BONE_INFLUENCE 4
 
 struct Vertex
 {
 	glm::vec3 position;
 	glm::vec3 normal;
-	glm::vec3 texCoords;
+	glm::vec2 texCoords;
 	glm::vec3 tangent;
 	glm::vec3 bitangent;
 	int mBoneIDs[MAX_BONE_INFLUENCE];
@@ -24,5 +27,15 @@ struct Texture
 
 class Mesh
 {
-	
+public:
+	std::vector<Vertex> vertices;
+	std::vector<unsigned int> indices;
+	std::vector<Texture> textures;
+	unsigned int VAO;
+
+	Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures);
+	void Draw(Shader& shader);
+private:
+	unsigned int VBO, EBO;
+	void setupMesh();
 };
