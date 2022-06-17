@@ -79,7 +79,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>.\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>.\libs\glfw;$(LibraryPath)</LibraryPath>
+    <LibraryPath>.\libs\assimp;.\libs\glfw;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -122,7 +122,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -448,6 +448,8 @@
     <ClInclude Include="includes\stb-master\stb_truetype.h" />
     <ClInclude Include="includes\stb-master\stb_voxel_render.h" />
     <ClInclude Include="src\utils\Camera.h" />
+    <ClInclude Include="src\utils\Mesh.h" />
+    <ClInclude Include="src\utils\model.h" />
     <ClInclude Include="src\utils\Shader.h" />
   </ItemGroup>
   <ItemGroup>

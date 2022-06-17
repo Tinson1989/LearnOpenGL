@@ -61,7 +61,46 @@ void Camera::processKeyboard(CameraMovement direction, float deltaTime)
 	{
 		position += front * velocity;
 	}
+	if(direction == BACKWARD)
+	{
+		position -= front * velocity;
+	}
+	if(direction == LEFT)
+	{
+		position -= right * velocity;
+	}
+	if(direction == RIGHT)
+	{
+		position += right * velocity;
+	}
 }
+
+void Camera::processMouseScroll(float yoffset)
+{
+	zoom -= yoffset;
+	if(zoom < 1.0f)
+	{
+		zoom = 1.0f;
+	}
+	if(zoom > 45.0f)
+	{
+		zoom = 45.0f;
+	}
+}
+
+void Camera::updateCameraVectors()
+{
+	//cross是怎么确定方向的？
+	glm::vec3 _front;
+	_front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+	_front.y = sin(glm::radians(pitch));
+	_front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+	front = glm::normalize(_front);
+	right = glm::normalize(glm::cross(front, worldUp));
+	up = glm::normalize(glm::cross(right, front));
+}
+
+
 
 
 
